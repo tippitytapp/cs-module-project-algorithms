@@ -1,11 +1,20 @@
+
+
+                            #### TESTS PASSING... OBJECTIVE COMPLETE ####
+
 '''
 Input: a List of integers
 Returns: a List of integers
 '''
 def moving_zeroes(arr):
-    # Your code here
+    for i, v in enumerate(arr):
+        if v == 0:
+            p = v
+            arr.remove(p)
+            arr.append(p)
 
-    pass
+
+    return arr
 
 
 if __name__ == '__main__':

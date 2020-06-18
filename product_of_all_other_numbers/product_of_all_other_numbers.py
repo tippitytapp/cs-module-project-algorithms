@@ -3,7 +3,8 @@ Input: a List of integers
 Returns: a List of integers
 '''
 def product_of_all_other_numbers(arr):
-    # Your code here
+    coin_types = [1, 5, 10, 25, 50]
+    
 
     pass
 
