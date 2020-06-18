@@ -6,20 +6,27 @@ Input: a List of integers where every int except one shows up twice
 Returns: an integer
 '''
 def single_number(arr):
-    
-    # loop thru array
-    # for i in range(length):
-    while len(arr) > 1:
-        # pop out the last number
-        oddity = arr.pop(-1)
-        # check if that number is still in the array
-        if oddity not in arr:
-            # if not return it
-            return oddity
-        # now remove the non-oddity, or else we'll get a false-positive
-        else:
-            arr.remove(oddity)
+    ### MY SOLUTION ###
+    # while len(arr) > 1:
+    #     # pop out the last number
+    #     notdup = arr.pop(-1)
+    #     # check if that number is still in the array
+    #     if notdup not in arr:
+    #         # return
+    #         return notdup
+    #     else:
+    #         arr.remove(notdup)
 
+### SEANS SOLUTION ###
+    # he doesnt have one??
+    s = set()
+    for x in arr:
+        if x in s:
+            s.remove(x)
+        else:
+            s.add(x)
+    
+    return list(s)[0]
 
 if __name__ == '__main__':
     # Use the main function to test your implementation
