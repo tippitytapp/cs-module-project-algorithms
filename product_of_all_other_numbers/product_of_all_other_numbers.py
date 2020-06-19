@@ -7,22 +7,59 @@
 Input: a List of integers
 Returns: a List of integers
 '''
+#### DAY 1 IMPLEMTATION
+# def product_of_all_other_numbers(arr):
+#     solution = []
+#     # loop thru array indices
+#     for i in range(len(arr)):
+#         # init product
+#         product = 1
+        
+#         # problem clearly hints at division,
+#         # multiply all values in array and divide by arr[i]
+
+#         for x in arr:
+#             product = product * x
+#             if product == 0:
+#                 solution.append(product)
+#             else:
+#                 product = product/arr[i]
+#                 solution.append(product)
+        
+#     return solution
+
 def product_of_all_other_numbers(arr):
-    solution = []
-    # loop thru array indices
-    for i in range(len(arr)):
-        # init product
-        product = 1
+
+    # refactor down to O(n)
+    n = len(arr)
+    # return array is it only has 1 value
+    if n == 1:
         
-        # problem clearly hints at division,
-        # multiply all values in array and divide by arr[i]
-        for x in arr:
-            product = product * x
-        
-        product = product/arr[i]
-        solution.append(product)
-        
-    return solution    
+        return arr
+
+    i, temp = 1, 1
+
+    # initialize a product array
+    prod = [1 for i in range(n)]
+
+    
+
+    # In this loop, temp variable contains product of
+    # elements on left side excluding arr[i]
+    for i in range(n):
+        prod[i] = temp
+        temp *= arr[i]
+
+    # Initialize temp to 1 for product on right side
+    temp = 1
+
+    # In this loop, temp variable contains product of
+    # elements on right side excluding arr[i]
+    for i in range(n - 1, -1, -1):
+        prod[i] *= temp
+        temp *= arr[i]
+
+    return prod    
 
 
 if __name__ == '__main__':
