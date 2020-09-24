@@ -1,11 +1,13 @@
-#!/usr/bin/python
+# !/usr/bin/python
 
 import sys
 
 def making_change(amount, denominations):
-  # Your code here
+    if len(sys.argv) > 1:
+        denominations = [1, 5, 10, 25, 50]
+        amount = int(sys.argv[1])
 
-  pass
+    pass
 
 
 if __name__ == "__main__":

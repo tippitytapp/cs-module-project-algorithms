@@ -1,12 +1,32 @@
+
+                            #### TESTS PASSING... OBJECTIVE COMPLETE ####
+
 '''
 Input: a List of integers where every int except one shows up twice
 Returns: an integer
 '''
 def single_number(arr):
-    # Your code here
+    ### MY SOLUTION ###
+    # while len(arr) > 1:
+    #     # pop out the last number
+    #     notdup = arr.pop(-1)
+    #     # check if that number is still in the array
+    #     if notdup not in arr:
+    #         # return
+    #         return notdup
+    #     else:
+    #         arr.remove(notdup)
 
-    pass
-
+### SEANS SOLUTION ###
+    # he doesnt have one??
+    s = set()
+    for x in arr:
+        if x in s:
+            s.remove(x)
+        else:
+            s.add(x)
+    
+    return list(s)[0]
 
 if __name__ == '__main__':
     # Use the main function to test your implementation
